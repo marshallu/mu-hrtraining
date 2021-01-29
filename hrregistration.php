@@ -36,7 +36,7 @@ function hrregistration( $atts ) {
 
 	if ( isset( $_GET['action'] ) && isset( $_GET['cnumber'] ) ) {
 
-		if ( ! isset( $_POST['hr_register'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['hr_register'] ) ), 'marshall-hr-registration' ) ) {
+		if ( ! isset( $_POST[ $config['wp_nonce_field'] ] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST[ $config['wp_nonce_field'] ] ) ), $config['wp_nonce_name'] ) ) {
 			die( 'FAIL!' );
 		}
 
@@ -119,7 +119,7 @@ function hrregistration( $atts ) {
 		if ( $seats_left > 0 ) {
 			if ( isset( $cnumber ) ) {
 				echo '<form method="POST" action="/human-resources/training/course-registration/?action=y&cnumber=' . esc_attr( $cnumber ) . '" name="hrtraining">';
-				wp_nonce_field( 'marshall-hr-registration', 'hr_register' );
+				wp_nonce_field( $config['wp_nonce_name'], $config['wp_nonce_field'] );
 				echo '<div class="my-2">';
 				echo '<label class="block vfb-desc" for="MUID">MUID Number</label>';
 				echo '<input type="text" class="text-input" name="MUID" max="9" min="9" placeholder="901xxxxxx" />';
