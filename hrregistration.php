@@ -63,8 +63,8 @@ function hrregistration( $atts ) {
 		if ( sqlsrv_num_rows( $check_stmt ) > 0 ) {
 			echo "You've already successfully registered for this course.";
 		} else {
-			$sql    = 'INSERT INTO Registrations (MUID,FirstName,LastName,Department,OfficePhone,Email,RegDate,CourseNo) VALUES (?,?,?,?,?,?,?,?)';
-			$params = array( $muid, $first_name, $last_name, $department, $phone, $email, date( 'Y-m-d' ), $cnumber ); // phpcs:ignore
+			$sql    = 'INSERT INTO Registrations (MUID, FirstName, LastName, Department, OfficePhone, Email, RegDate, CourseNo) VALUES (?,?,?,?,?,?,?,?)';
+			$params = array( $muid, $first_name, $last_name, $department, $phone, $email, date( 'Y-m-d HH:MM:SS' ), $cnumber ); // phpcs:ignore
 
 			$stmt = sqlsrv_query( $conn, $sql, $params );
 
