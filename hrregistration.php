@@ -64,7 +64,7 @@ function hrregistration( $atts ) {
 			echo "You've already successfully registered for this course.";
 		} else {
 			$sql    = 'INSERT INTO Registrations (MUID, FirstName, LastName, Department, OfficePhone, Email, RegDate, CourseNo) VALUES (?,?,?,?,?,?,?,?)';
-			$params = array( $muid, $first_name, $last_name, $department, $phone, $email, date('Y-m-d H:i:s'), $cnumber ); // phpcs:ignore
+			$params = array( $muid, $first_name, $last_name, $department, $phone, $email, date( 'Y-m-d H:i:s' ), $cnumber ); // phpcs:ignore
 
 			$stmt = sqlsrv_query( $conn, $sql, $params );
 
@@ -107,6 +107,7 @@ function hrregistration( $atts ) {
 	}
 
 	while ( $row = sqlsrv_fetch_array( $class_stmt, SQLSRV_FETCH_ASSOC ) ) {
+
 		$count_sql = "SELECT * FROM Registrations WHERE CourseNo = '" . esc_attr( $cnumber ) . "'";
 		$count     = sqlsrv_query( $conn, $count_sql, array(), array( 'Scrollable' => 'static' ) );
 
