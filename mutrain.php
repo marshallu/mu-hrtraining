@@ -52,13 +52,13 @@ function mtrain( $atts ) {
 		} elseif ( 'Banner Basic Purchasing' === $data['cname'] ) {
 			echo '<p>For Banner Basic Purchasing training information, please contact Tracey Brown-Dolinski at <a href="mailto:browndolinsk@marshall.edu">browndolinsk@marshall.edu</a></p>';
 		} elseif ( 'Banner Schedule Entry Training' === $data['cname'] ) {
-			echo '<p>Banner Basic Navigation training is required to be completed prior to Training. Please email at <a href="mailto:registrar@marshall.edu"> registrar@marshall.edu</a></p>';
+			echo '<p>Banner Basic Navigation training is required to be completed prior to Training. Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
 		} elseif ( 'Banner Registration Training' === $data['cname'] ) {
-			echo '<p>Restricted to Dean’s office staff. Banner Basic Navigation training is required to be completed prior to Training. Please email at <a href="mailto:registrar@marshall.edu"> registrar@marshall.edu</a></p>';
+			echo '<p>Restricted to Dean’s office staff. Banner Basic Navigation training is required to be completed prior to Training. Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
 		} elseif ( 'Banner Changing or Adding Student Majors/Minors' === $data['cname'] ) {
-			echo '<p>Restricted to Dean’s office staff. Banner Basic Navigation training is required to be completed prior to Training. Please email at <a href="mailto:registrar@marshall.edu"> registrar@marshall.edu</a></p>';
+			echo '<p>Restricted to Dean’s office staff. Banner Basic Navigation training is required to be completed prior to Training. Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
 		} elseif ( 'Banner Student Registration Training' === $data['cname'] ) {
-			echo '<p>Banner Basic Navigation training is required to be completed prior to Training Please email at <a href="mailto:registrar@marshall.edu"> registrar@marshall.edu</a></p>';
+			echo '<p>Banner Basic Navigation training is required to be completed prior to Training Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
 		} elseif ( 'Banner Budget, Online Inquiry and Data Extract' === $data['cname'] ) {
 			echo '<p>For Banner Budget, Online Inquiry and Data Extract training please contact <a href="mailto:budget@marshall.edu">budget@marshall.edu</a> or Melanie Gallagher <a href="mailto:gallaghe1@marshall.edu">gallaghe1@marshall.edu</a>.</p>';
 		} else {
