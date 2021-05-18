@@ -59,7 +59,7 @@ function mtrain( $atts ) {
 			echo '<p>Restricted to Dean’s office staff. Banner Basic Navigation training is required to be completed prior to Training. Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
 		} elseif ( 'Banner Student Registration Training' === $data['cname'] ) {
 			echo '<p>Banner Basic Navigation training is required to be completed prior to Training Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
-		} elseif ( 'Banner Budget, Online Inquiry and Data Extract' === $data['cname'] ) {
+		} elseif ( 'Banner Budget, Online Inquiry and Data Extract' == $data['cname'] ) {
 			echo '<p>For Banner Budget, Online Inquiry and Data Extract training please contact <a href="mailto:budget@marshall.edu">budget@marshall.edu</a> or Melanie Gallagher <a href="mailto:gallaghe1@marshall.edu">gallaghe1@marshall.edu</a>.</p>';
 		} else {
 			echo '<p>No ' . esc_attr( $data['cname'] ) . ' training sessions are currently scheduled. Please check back.</p>';
