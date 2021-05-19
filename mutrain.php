@@ -12,7 +12,7 @@ $date = strtotime( 'now' );
  *
  * @param array $atts The array of attributes accepted with the shortcode.
  */
-function mtrain( $atts ) {
+function mtrain( $atts, $content = null ) {
 	$data = shortcode_atts(
 		array(
 			'cname' => 'foo',
@@ -48,22 +48,26 @@ function mtrain( $atts ) {
 	$row_count = sqlsrv_num_rows( $stmt );
 
 	if ( ! sqlsrv_num_rows( $stmt ) ) {
-		if ( 'Banner HR Introduction' === $data['cname'] ) {
-			echo '<p>For Banner HR training information, please contact Mary Chapman at <a href="mailto:chapmanm@marshall.edu">chapmanm@marshall.edu</a></p>';
-		} elseif ( 'Banner Basic Purchasing' === $data['cname'] ) {
-			echo '<p>For Banner Basic Purchasing training information, please contact Tracey Brown-Dolinski at <a href="mailto:browndolinsk@marshall.edu">browndolinsk@marshall.edu</a></p>';
-		} elseif ( 'Banner Schedule Entry Training' === $data['cname'] ) {
-			echo '<p>Banner Basic Navigation training is required to be completed prior to Training. Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
-		} elseif ( 'Banner Registration Training' === $data['cname'] ) {
-			echo '<p>Restricted to Dean’s office staff. Banner Basic Navigation training is required to be completed prior to Training. Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
-		} elseif ( 'Banner Changing or Adding Student Majors/Minors' === $data['cname'] ) {
-			echo '<p>Restricted to Dean’s office staff. Banner Basic Navigation training is required to be completed prior to Training. Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
-		} elseif ( 'Banner Student Registration Training' === $data['cname'] ) {
-			echo '<p>Banner Basic Navigation training is required to be completed prior to Training Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
-		} elseif ( 1 == $data['type'] ) {
-			echo '<p>For Banner Budget, Online Inquiry and Data Extract training please contact <a href="mailto:budget@marshall.edu">budget@marshall.edu</a> or Melanie Gallagher <a href="mailto:gallaghe1@marshall.edu">gallaghe1@marshall.edu</a>.</p>';
+		if ( $content ) {
+			echo '<p>' . wp_kses_post( $content ) . '</p>';
 		} else {
-			echo '<p>No ' . esc_attr( $data['cname'] ) . ' training sessions are currently scheduled. Please check back.</p>';
+			if ( 'Banner HR Introduction' === $data['cname'] ) {
+				echo '<p>For Banner HR training information, please contact Mary Chapman at <a href="mailto:chapmanm@marshall.edu">chapmanm@marshall.edu</a></p>';
+			} elseif ( 'Banner Basic Purchasing' === $data['cname'] ) {
+				echo '<p>For Banner Basic Purchasing training information, please contact Tracey Brown-Dolinski at <a href="mailto:browndolinsk@marshall.edu">browndolinsk@marshall.edu</a></p>';
+			} elseif ( 'Banner Schedule Entry Training' === $data['cname'] ) {
+				echo '<p>Banner Basic Navigation training is required to be completed prior to Training. Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
+			} elseif ( 'Banner Registration Training' === $data['cname'] ) {
+				echo '<p>Restricted to Dean’s office staff. Banner Basic Navigation training is required to be completed prior to Training. Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
+			} elseif ( 'Banner Changing or Adding Student Majors/Minors' === $data['cname'] ) {
+				echo '<p>Restricted to Dean’s office staff. Banner Basic Navigation training is required to be completed prior to Training. Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
+			} elseif ( 'Banner Student Registration Training' === $data['cname'] ) {
+				echo '<p>Banner Basic Navigation training is required to be completed prior to Training Please email at <a href="mailto:registrar@marshall.edu">registrar@marshall.edu</a></p>';
+			} elseif ( 1 == $data['type'] ) {
+				echo '<p>For Banner Budget, Online Inquiry and Data Extract training please contact <a href="mailto:budget@marshall.edu">budget@marshall.edu</a> or Melanie Gallagher <a href="mailto:gallaghe1@marshall.edu">gallaghe1@marshall.edu</a>.</p>';
+			} else {
+				echo '<p>No ' . esc_attr( $data['cname'] ) . ' training sessions are currently scheduled. Please check back.</p>';
+			}
 		}
 	} else {
 		echo '<h3>Upcoming Sessions</h3>';
