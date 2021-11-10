@@ -21,6 +21,6 @@ require plugin_dir_path( __FILE__ ) . 'hrregistration.php';
  * Proper way to enqueue scripts and styles
  */
 function mu_hrtraining_scripts() {
-	wp_enqueue_style( 'mu_hrtraining', plugin_dir_path( __FILE__ ) . 'css/mu_hrtraining.css', '', true );
+	wp_enqueue_style( 'mu_hrtraining', plugin_dir_url( __FILE__ ) . 'css/mu_hrtraining.css', '', true );
 }
 add_action( 'wp_enqueue_scripts', 'mu_hrtraining_scripts' );
