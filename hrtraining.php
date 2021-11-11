@@ -5,9 +5,9 @@
  * This plugin is for Human Resources to display available trainings and allow faculty, staff
  * or students to register for training.
  *
- * @package HR Training
+ * @package MU HR Training
  *
- * Plugin Name: HR Training
+ * Plugin Name: MU HR Training
  * Plugin URI: https://www.marshall.edu
  * Description: This plugin is for Human Resources to display available trainings and allow faculty, staff or students to register for training.
  * Version: 1.0
